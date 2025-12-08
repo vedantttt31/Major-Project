@@ -1,0 +1,59 @@
+<% layout("/layouts/boilerplate") %>
+
+  <div class="container mt-5">
+    <h3 class="text-center mb-4">Create a New Listing</h3>
+    <form method="POST" action="/listings" class="needs-validation p-4 border rounded shadow-sm bg-white mx-auto"
+      style="max-width: 600px;" novalidate>
+
+
+      <!-- Title -->
+      <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input name="listing[title]" id="title" placeholder="Enter title" type="text" class="form-control" required />
+      </div>
+
+      <!-- Description -->
+      <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea name="listing[description]" id="description" placeholder="Enter description" rows="3"
+          class="form-control" required></textarea>
+        <div class="invalid-feedback">Description must be within 100 words , but not empty.</div>
+      </div>
+
+      <!-- Image -->
+      <div class="mb-3">
+        <label for="image" class="form-label">Image</label>
+        <input name="listing[image]" id="image" placeholder="Enter image URL" type="text" class="form-control" />
+      </div>
+
+      <!-- Price + Country in same row -->
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <label for="price" class="form-label">Price</label>
+          <input name="listing[price]" id="price" placeholder="Enter price" type="number" class="form-control"
+            required />
+          <div class="invalid-feedback">
+            Price must be greater than 0.
+          </div>
+        </div>
+        <div class="col-md-6">
+          <label for="country" class="form-label">Country</label>
+          <input name="listing[country]" id="country" placeholder="Enter country" type="text" class="form-control"
+            required />
+        </div>
+      </div>
+
+      <!-- Location -->
+      <div class="mb-4">
+        <label for="location" class="form-label">Location</label>
+        <input name="listing[location]" id="location" placeholder="Enter location" type="text" class="form-control"
+          required />
+      </div>
+
+      <!-- Button -->
+      <div class="text-center">
+        <button class="add">Add</button>
+      </div>
+    </form>
+  </div>
+  <

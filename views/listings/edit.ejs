@@ -1,0 +1,107 @@
+<% layout("/layouts/boilerplate") %>
+
+<div class="container mt-5">
+  <h3 class="text-center mb-4">Edit Listing</h3>
+  <form method="POST" 
+        action="/listings/<%= listing._id %>?_method=PUT" 
+        class="needs-validation p-4 border rounded shadow-sm bg-white mx-auto"
+        style="max-width: 600px;" 
+        novalidate>
+
+    <!-- Title -->
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input 
+        name="listing[title]" 
+        id="title" 
+        placeholder="Enter title" 
+        type="text" 
+        class="form-control" 
+        value="<%= listing.title %>" 
+        required />
+      <div class="invalid-feedback">
+        Title cannot be empty.
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <label for="description" class="form-label">Description</label>
+      <textarea 
+        name="listing[description]" 
+        id="description" 
+        placeholder="Enter description" 
+        rows="3"
+        class="form-control" 
+        required><%= listing.description %></textarea>
+      <div class="invalid-feedback">
+        Description must be within 100 words, but not empty.
+      </div>
+    </div>
+
+    <!-- Image -->
+    <div class="mb-3">
+      <label for="image" class="form-label">Image</label>
+      <input 
+        name="listing[image]" 
+        id="image" 
+        placeholder="Enter image URL" 
+        type="text" 
+        class="form-control" 
+        value="<%= listing.image.url %>" />
+    </div>
+
+    <!-- Price + Country -->
+    <div class="row mb-3">
+      <div class="col-md-6">
+        <label for="price" class="form-label">Price</label>
+        <input 
+          name="listing[price]" 
+          id="price" 
+          placeholder="Enter price" 
+          type="number" 
+          class="form-control" 
+          value="<%= listing.price %>" 
+          required />
+        <div class="invalid-feedback">
+          Price must be greater than 0.
+        </div>
+      </div>
+      <div class="col-md-6">
+        <label for="country" class="form-label">Country</label>
+        <input 
+          name="listing[country]" 
+          id="country" 
+          placeholder="Enter country" 
+          type="text" 
+          class="form-control" 
+          value="<%= listing.country %>" 
+          required />
+        <div class="invalid-feedback">
+          Country is required.
+        </div>
+      </div>
+    </div>
+
+    <!-- Location -->
+    <div class="mb-4">
+      <label for="location" class="form-label">Location</label>
+      <input 
+        name="listing[location]" 
+        id="location" 
+        placeholder="Enter location" 
+        type="text" 
+        class="form-control" 
+        value="<%= listing.location %>" 
+        required />
+      <div class="invalid-feedback">
+        Location cannot be empty.
+      </div>
+    </div>
+
+    <!-- Button -->
+    <div class="text-center">
+      <button class="add">Update</button>
+    </div>
+  </form>
+</div>
