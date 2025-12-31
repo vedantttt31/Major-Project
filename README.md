@@ -20,4 +20,4 @@ The project follows the MVC architecture with RESTful routing, centralized error
 
 Live Demo
 
-🔗 https://major-project-o36.onrender.com/
+🔗  https://major-project-o36j.onrender.com
